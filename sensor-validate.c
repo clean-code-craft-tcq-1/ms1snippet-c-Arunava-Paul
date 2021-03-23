@@ -5,20 +5,23 @@ int isVariationInRange(double value, double nextValue, double maxDelta) {
     return 0;
   }
   return 1;
-}
+}/*end of isVariationInRange*/
 
 
-int validateParameterreadings(double* values,  int numOfValues , sensor_type_en sensor_type)
+int validate_SensorParameterReadings(double* values,  int numOfValues , sensor_type_en sensor_type)
 {
-	bool retVal = 0;
-	const sensor_eval_parameter_st sensor_eval_parameter[Max_count_sensor]={{0.05},{0.1}};
-	int lastButOneIndex = numOfValues - 1;	
-	for(int i = 0; i < lastButOneIndex; i++) 
+	bool retVal = 0; /*Set to not ok*/
+	const sensor_eval_parameter_st sensor_eval_parameter[Max_count_sensor]={{0.05},{0.1}};	
+	if((values != 0 ) && (numOfValues > 1))//check the null pointer case
 	{
-		if(isVariationInRange(values[i], values[i + 1], sensor_eval_parameter[sensor_type].max_allowed_delta)) 
+		int lastButOneIndex = numOfValues - 1;
+		for(int i = 0; i < lastButOneIndex; i++) 
 		{
-			retVal = 0;
+			if(isVariationInRange(values[i], values[i + 1], sensor_eval_parameter[sensor_type].max_allowed_delta)) 
+			{
+				retVal = 0;/*Set to ok*/
+			}
 		}
 	}
 	return retVal;
-}
+}/*end of validate_SensorParameterReadings*/
