@@ -4,8 +4,7 @@
 #include "sensor-validate.h"
 #include "test_case.h"
 
-/********Negetive case*************/
-TEST_CASE("reports error when soc jumps abruptly") 
+TEST_CASE("reports error when soc/current jumps abruptly") 
 {
 
 	int idx;
@@ -14,7 +13,7 @@ TEST_CASE("reports error when soc jumps abruptly")
 	double value_set13[3] = {0.23,0.29,0.38};
 	double value_set14[7] = {0.78,0.79,0.85,0.87,0.88,0.89,0.90};
 	double value_set15[2] = {0.0,0.1};
-	const test_set_st SOC_test_set[5] = 
+	const test_set_st SOC_test_set[10] = 
 	{
 		   {
 	/*double *value_arr;		*/			value_set11,
@@ -40,29 +39,8 @@ TEST_CASE("reports error when soc jumps abruptly")
 	/*double *value_arr;		*/			value_set15,
 	/*int arr_length;			*/			(sizeof(value_set15)/sizeof(value_set15[0])),
 	/*sensor_type_en sn_type;	*/			SOC_sensor
-			}
-	};
-	  for(idx =0; idx < 5 ; idx++)
-	  {
-		  REQUIRE(Test(	SOC_test_set[idx].value_arr ,	\
-						SOC_test_set[idx].arr_length,	\
-						SOC_test_set[idx].sn_type		\
-					  ) == 0);
-	  }
-}
-
-TEST_CASE("reports error when current jumps abruptly") {
-  
-
-	int idx;
-	double value_set16[4] = {0.0,1.1,2.2,3.3};
-	double value_set17[5] = {0.0,1.1,2.2,3.3,4.4};
-	double value_set18[3] = {0.0,1.1,2.2};
-	double value_set19[7] = {0.0,1.1,2.2,3.3,4.4,5.5,6.6};
-	double value_set20[2] = {0.0,1.1};
-	const test_set_st SOC_test_set[5] = 
-	{
-		   {
+			},
+			{
 	/*double *value_arr;		*/			value_set16,
 	/*int arr_length;			*/			(sizeof(value_set16)/sizeof(value_set16[0])),
 	/*sensor_type_en sn_type;	*/			Current_sensor
@@ -88,7 +66,7 @@ TEST_CASE("reports error when current jumps abruptly") {
 	/*sensor_type_en sn_type;	*/			Current_sensor
 			}
 	};
-	  for(idx =0; idx < 5 ; idx++)
+	  for(idx =0; idx < 10 ; idx++)
 	  {
 		  REQUIRE(Test(	SOC_test_set[idx].value_arr ,	\
 						SOC_test_set[idx].arr_length,	\
@@ -104,6 +82,5 @@ TEST_CASE("reports error when passed Null pointer buffer")
 }
 
 
-/**********************/
 
 
