@@ -13,6 +13,11 @@ TEST_CASE("reports error when soc/current jumps abruptly")
 	double value_set13[3] = {0.23,0.29,0.38};
 	double value_set14[7] = {0.78,0.79,0.85,0.87,0.88,0.89,0.90};
 	double value_set15[2] = {0.0,0.1};
+	double value_set16[4] = {0.0,1.1,2.2,3.3};
+	double value_set17[5] = {0.0,1.1,2.2,3.3,4.4};
+	double value_set18[3] = {0.0,1.1,2.2};
+	double value_set19[7] = {0.0,1.1,2.2,3.3,4.4,5.5,6.6};
+	double value_set20[2] = {0.0,1.1};
 	const test_set_st SOC_test_set[10] = 
 	{
 		   {
