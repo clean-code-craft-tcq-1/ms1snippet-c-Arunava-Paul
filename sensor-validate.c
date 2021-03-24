@@ -10,7 +10,7 @@ int isVariationInRange(double value, double nextValue, double maxDelta) {
 
 int validate_SensorParameterReadings(double* values,  int numOfValues , sensor_type_en sensor_type)
 {
-	int i,retVal = 0; /*Set to not ok*/
+	int i,retVal = 1; /*Set to not ok*/
 	const sensor_eval_parameter_st sensor_eval_parameter[Max_count_sensor]={{0.05},{0.1}};	
 	if((values != 0 ) && (numOfValues > 1))//check the null pointer case
 	{
