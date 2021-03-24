@@ -17,7 +17,7 @@ int validate_SensorParameterReadings(double* values,  int numOfValues , sensor_t
 		int lastButOneIndex = numOfValues - 1;
 		for(i = 0; i < lastButOneIndex; i++) 
 		{
-			if(isVariationInRange(values[i], values[i + 1], sensor_eval_parameter[sensor_type].max_allowed_delta)) 
+			if(!isVariationInRange(values[i], values[i + 1], sensor_eval_parameter[sensor_type].max_allowed_delta)) 
 			{
 				retVal = 0;/*Set to ok*/
 			}
