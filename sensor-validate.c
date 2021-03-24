@@ -31,7 +31,7 @@ int validate_SensorParameterReadings(double* values,  int numOfValues , sensor_t
 
 int isSanityCheckOk(double* values,  int numOfValues)
 {
-	if((values != 0 ) && (numOfValues > 1))
+	if((values == 0 ) && (numOfValues < 2))
 	{
 		return 0;
 	}
