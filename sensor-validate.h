@@ -13,3 +13,4 @@ typedef struct
 int validate_SensorParameterReadings(double* values,  int numOfValues , sensor_type_en sensor_type);
 int isVariationInRange(double value, double nextValue, double maxDelta);
 int isSanityCheckOk(double* values,  int numOfValues);
+int evaluate_Readings(double* readings,  int numOfReadings , sensor_type_en sensor_type);
